@@ -71,7 +71,7 @@ var createBoard = function () {
    for (var i = 0; i < cards.length; i++) {
       
       // calculate random number within our range of cards in order to provide a shuffled deck each play
-      shuffledCard = getRandomInt(0, cards.length-1);
+      var shuffledCard = getRandomInt(0, cards.length-1);
       while (shuffledDeck.includes(shuffledCard)) {
          shuffledCard = getRandomInt(0, cards.length-1);
       };
