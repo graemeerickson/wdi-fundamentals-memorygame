@@ -37,6 +37,7 @@ h3 {
    color: #0D2C40;
    font-size: 20px;
    font-weight: 600;
+   margin-bottom: 20px;
 }
 
 p {
@@ -61,6 +62,31 @@ a:hover {
 
 img {
    margin: 40px 8px;
+}
+
+ul {
+   margin: 0 auto;
+}
+
+li {
+   text-align: center;
+   font-size: 18px;
+   padding: 8px;
+   width: 25%;
+   height: 20px;
+   outline: 1px solid #000000;
+   float: left;
+   line-height: 20px;
+}
+
+input {
+   font-family: "Raleway", sans-serif;
+   background-color: #F15B31;
+   color: #FFFFFF;
+   font-size: 16px;
+   padding: 10px;
+   border: 1px solid #00A6B3;
+   border-radius: 5px;
 }
 
 footer {
@@ -95,4 +121,10 @@ footer {
 .name {
    color: #F15B31;
    font-weight: 700;
+}
+
+.scoreboard {
+   font-family: "Raleway", sans-serif;
+   padding: 0px 300px 15px 300px;
+   text-align: left;
 }
