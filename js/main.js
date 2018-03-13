@@ -28,28 +28,20 @@ var numWins = 0;
 var numLosses = 0;
 var winPercentage = 0.0;
 
-// logic to check whether the two cards match
+// logic to check whether the two cards match, and to update the user's score
 var checkForMatch = function () {
    if (cardsInPlay[0] === cardsInPlay[1]) {
       console.log("You found a match!");
       setTimeout(function() { alert("You found a match!"); }, 25);
       numWins += 1;
+      winPercentage = winPercentageCalc(numWins, numLosses);
       document.getElementById('wins').innerHTML = numWins;
-      if (numWins === 0) {
-         winPercentage = 0.00;
-      } else {
-         winPercentage = round((numWins / (numLosses + numWins) * 100),1);
-      };
       document.getElementById('winpercentage').innerHTML = winPercentage + "%";
    } else {
       console.log("Sorry, try again.");
       setTimeout(function() { alert("Sorry, try again."); }, 25);
       numLosses += 1;
-      if (numWins === 0) {
-         winPercentage = 0.00;
-      } else {
-         winPercentage = round((numWins / (numLosses + numWins) * 100),1);
-      };
+      winPercentage = winPercentageCalc(numWins, numLosses);
       document.getElementById('losses').innerHTML = numLosses;
       document.getElementById('winpercentage').innerHTML = winPercentage + "%";
    };
@@ -112,12 +104,17 @@ var resetBoard = function() {
 
 // rounding function, thanks to: http://www.jacklmoore.com/notes/rounding-in-javascript/
 function round(value, decimals) {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 };
 
 // random number function, thanks to: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+// calculate win percentage to a rounded number
+function winPercentageCalc(wins, losses) {
+   return (wins === 0 ? 0.00 : round((numWins / (numLosses + numWins) * 100),1));
+};
 
 createBoard();
